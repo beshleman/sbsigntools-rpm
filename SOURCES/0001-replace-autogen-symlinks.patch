@@ -1,0 +1,13 @@
+diff --git a/autogen.sh b/autogen.sh
+index d8c4b5e..4caa74f 100755
+--- a/autogen.sh
++++ b/autogen.sh
+@@ -31,3 +31,8 @@ aclocal
+ autoheader
+ autoconf
+ automake --add-missing -Wno-portability
++
++for f in test-driver depcomp INSTALL compile install-sh missing
++do
++    cp --remove-destination $(readlink "$f") "$f"
++done
